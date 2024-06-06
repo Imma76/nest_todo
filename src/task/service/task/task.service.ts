@@ -16,6 +16,6 @@ export class TaskService {
     }
 
     getTask() {
-        //  return this.prisma.todo.findMany({ select: { user: true } });
+          return this.prisma.todo.findMany({include:{user:true}});
     }
 }
