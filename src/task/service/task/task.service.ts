@@ -22,4 +22,7 @@ export class TaskService {
     getTaskById(id: number) {
         return this.prisma.todo.findUnique({ where: { id: id } });
     }
+    getTaskByName(name: string) {
+        return this.prisma.todo.findMany({ where: { title: name } });
+    }
 }

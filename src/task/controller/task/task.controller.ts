@@ -6,6 +6,7 @@ import {
     Param,
     ParseIntPipe,
     Post,
+    Query,
     UsePipes,
     ValidationPipe,
 } from '@nestjs/common';
@@ -23,8 +24,8 @@ export class TaskController {
     }
 
     @Get()
-   async getTask() {
-       const task =  await this.taskService.getTask(); 
+    async getTask() {
+        const task = await this.taskService.getTask();
         return { status: true, data: task }
     }
 
@@ -39,5 +40,16 @@ export class TaskController {
         }
 
         return { status: true, data: task }
+    }
+
+    @Get(':name')
+    async getTaskByName(@Query('name') name: string) {
+        const task = this.taskService.getTaskByName(name);
+        if (!task) {
+            throw new NotFoundException('Task not found');
+        }
+
+        return { status: true, data: task }
+
     }
 }
