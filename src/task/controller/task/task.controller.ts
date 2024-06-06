@@ -23,8 +23,9 @@ export class TaskController {
     }
 
     @Get()
-    getTask() {
-        return this.taskService.getTask();
+   async getTask() {
+       const task =  await this.taskService.getTask(); 
+        return { status: true, data: task }
     }
 
     @Get(':id')
