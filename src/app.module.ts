@@ -7,10 +7,11 @@ import { TaskController } from './task/controller/task/task.controller';
 import { TaskService } from './task/service/task/task.service';
 import { PrismaService } from './prisma/prisma.service';
 import { PrismaModule } from './prisma/prisma.module';
+import { JwtService } from '@nestjs/jwt';
 
 @Module({
   imports: [PrismaModule],
   controllers: [AppController, UserController, TaskController],
-  providers: [AppService, UserService, TaskService, ],
+  providers: [AppService, UserService, TaskService, JwtService ],
 })
 export class AppModule {}

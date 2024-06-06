@@ -1,12 +1,11 @@
-import { Prisma } from "@prisma/client";
 import { IsEmail, IsNotEmpty, IsString } from "class-validator";
 
-export class CreateUserDto{
+export class CreateUserDto {
     @IsNotEmpty()
-        @IsEmail()
+    @IsEmail()
     email: string;
     @IsNotEmpty()
-        @IsString()
+    @IsString()
     username: string;
     @IsNotEmpty()
     @IsString()
@@ -14,6 +13,15 @@ export class CreateUserDto{
 }
 
 
-export class UserDto{
+export class LoginDto {
+
+    @IsNotEmpty()
+    @IsString()
+    username: string;
+    @IsNotEmpty()
+    @IsString()
+    password: string;
+}
+export class UserDto {
     id: number;
 }
