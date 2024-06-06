@@ -16,6 +16,10 @@ export class TaskService {
     }
 
     getTask() {
-          return this.prisma.todo.findMany({include:{user:true}});
+        return this.prisma.todo.findMany({ include: { user: true } });
+    }
+
+    getTaskById(id: number) {
+        return this.prisma.todo.findUnique({ where: { id: id } });
     }
 }
