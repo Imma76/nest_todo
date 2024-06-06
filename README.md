@@ -45,6 +45,10 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
+## how to install and use postgres sql
+1. install postgress application and create a server and start it
+2. install pgAdmin .
+
 ## Test
 
 ```bash
