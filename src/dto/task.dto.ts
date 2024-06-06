@@ -20,3 +20,27 @@ export class CreateTaskDto {
 
 
 }
+
+
+export class TaskDto {
+    @IsNotEmpty()
+    @IsNumber()
+    id: number;
+    @IsNotEmpty()
+    @IsString()
+    title: string;
+    @IsNotEmpty()
+    @IsString()
+    content: string;
+    @IsNotEmpty()
+    @IsString()
+    type: string;
+    @IsNotEmpty()
+    @IsBoolean()
+    completed: boolean;
+    @IsNotEmpty()
+    @IsNumber()
+    userId: number;
+
+
+}

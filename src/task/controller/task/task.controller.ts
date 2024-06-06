@@ -10,7 +10,7 @@ import {
   UsePipes,
   ValidationPipe,
 } from '@nestjs/common';
-import { CreateTaskDto } from 'src/dto/task.dto';
+import { CreateTaskDto, TaskDto } from 'src/dto/task.dto';
 import { TaskService } from 'src/task/service/task/task.service';
 
 @Controller('task')
@@ -48,6 +48,13 @@ export class TaskController {
       throw new NotFoundException('Task not found');
     }
 
+    return { status: true, data: task };
+  }
+
+  @Post('update')
+  async updateTask(@Body() createTask: TaskDto) {
+    await this.getTaskById(createTask.id);
+    const task = await this.taskService.updateTask(createTask);
     return { status: true, data: task };
   }
 }
