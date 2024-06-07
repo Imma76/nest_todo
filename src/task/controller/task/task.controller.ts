@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Delete,
   Get,
   NotFoundException,
   Param,
@@ -57,4 +58,11 @@ export class TaskController {
     const task = await this.taskService.updateTask(createTask);
     return { status: true, data: task };
   }
+    @Delete(':id')
+    async delete(@Param('id', ParseIntPipe) id: number) {
+        const task =  await this.taskService.deleteTask(id);
+        return { status: true, data: 'todo deleted' };
+
+    }
+
 }

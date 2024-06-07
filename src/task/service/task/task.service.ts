@@ -34,4 +34,7 @@ export class TaskService {
       data: updateData,
     });
   }
+  deleteTask(id: number) {
+    return this.prisma.todo.delete({ where: { id: id } });
+  }
 }
